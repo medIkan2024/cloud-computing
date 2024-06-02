@@ -118,7 +118,7 @@ const getUserInfo = async (req, res, next) => {
     const userId = payload.userId;
     const user = await User.findOne({
       where: { id: userId },
-      attributes: ["id", "fullName", "email", "profilePicture"],
+      attributes: ["id", "username", "email", "profilePicture"],
     });
 
     if (user == undefined) {
@@ -144,9 +144,9 @@ const getUserInfo = async (req, res, next) => {
 const editAccountHandler = async (req, res, next) => {
   try {
     const authorization = req.headers.authorization;
-    const { email, fullName } = req.body;
+    const { email, username } = req.body;
 
-    if (!email || !fullName) {
+    if (!email || !username) {
       const error = new Error("Email and full name can't be empty!");
       error.statusCode = 400;
       throw error;
@@ -166,7 +166,7 @@ const editAccountHandler = async (req, res, next) => {
       where: {
         id: decoded.userId,
       },
-      attributes: ["id", "fullName", "email", "profilePicture"],
+      attributes: ["id", "username", "email", "profilePicture"],
     });
 
     if (!currentUser) {
@@ -184,7 +184,7 @@ const editAccountHandler = async (req, res, next) => {
     }
 
     await currentUser.update({
-      fullName,
+      username,
       email,
     });
 
@@ -219,7 +219,7 @@ const editProfilePictureHandler = async (req, res, next) => {
       where: {
         id: decoded.userId,
       },
-      attributes: ["id", "fullName", "email", "profilePicture"],
+      attributes: ["id", "username", "email", "profilePicture"],
     });
 
     if (!currentUser) {

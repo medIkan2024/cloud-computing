@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/userRoutes");
@@ -29,7 +30,7 @@ app.get("/", (req, res, next) => {
 
 association()
   .then(() => {
-    app.listen(8080);
+    app.listen(process.env.PORT || 8080, "0.0.0.0");
     console.log("Connected to http://localhost:8080");
   })
   .catch((e) => {
