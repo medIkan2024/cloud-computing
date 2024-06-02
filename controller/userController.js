@@ -5,11 +5,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const key = process.env.TOKEN_SECRET_KEY;
 const bucket = require("../util/storage_connect");
-const { uploadFile } = require("../util/storage_connect");
 
 const registerHandler = async (req, res, next) => {
   try {
-    const { fullName, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     const checkUser = await User.findOne({
       where: {
@@ -28,7 +27,7 @@ const registerHandler = async (req, res, next) => {
 
     //insert data ke tabel users
     await User.create({
-      fullName: fullName,
+      username: username.replace(/\s+/g, "").toLowerCase(),
       email,
       password: hashedPassword,
     });
