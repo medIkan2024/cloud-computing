@@ -27,7 +27,8 @@ const registerHandler = async (req, res, next) => {
 
     //insert data ke tabel users
     await User.create({
-      username: username.replace(/\s+/g, "").toLowerCase(),
+      // username: username.replace(/\s+/g, "").toLowerCase(),
+      username,
       email,
       password: hashedPassword,
     });

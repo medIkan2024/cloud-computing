@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const googleAuthRouter = require("./routes/googleAuthRoutes");
 const userRouter = require("./routes/userRoutes");
 const association = require("./util/db_assoc");
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(userRouter);
+app.use(googleAuthRouter);
 
 app.get("/", (req, res, next) => {
   res.json({
