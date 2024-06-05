@@ -10,7 +10,7 @@ const key = process.env.TOKEN_SECRET_KEY;
 const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  "http://localhost:8080/auth/google/callback"
+  "https://web-service-dot-medikan.et.r.appspot.com/auth/google/callback"
 );
 
 const scopes = [
