@@ -1,7 +1,14 @@
 const sequelize = require("./db_connect");
 const User = require("../model/UserModel");
-const Disease = require("../model/DieseaseModel");
+const History = require("../model/HistoryModel");
+const Disease = require("../model/DiseaseModel");
 const diseases = require("../model/DiseasesData");
+
+User.hasMany(History);
+History.belongsTo(User);
+
+History.belongsTo(Disease);
+Disease.hasMany(History);
 
 const association = async () => {
   try {
