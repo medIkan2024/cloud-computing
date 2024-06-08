@@ -1,10 +1,12 @@
 require("dotenv").config();
 const User = require("../model/UserModel");
-const { Op } = require("sequelize");
+const History = require("../model/HistoryModel");
+const { Op, where, Model } = require("sequelize");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const key = process.env.TOKEN_SECRET_KEY;
 const bucket = require("../util/storage_connect");
+const Disease = require("../model/DiseaseModel");
 
 const registerHandler = async (req, res, next) => {
   try {
@@ -269,10 +271,96 @@ const editProfilePictureHandler = async (req, res, next) => {
   }
 };
 
+const addUserHistory = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    const { name, image, diseaseId } = req.body;
+
+    if (!name || !image || !diseaseId) {
+      const error = new Error("Data can't be empty!");
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const currentUser = await User.findOne({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!currentUser) {
+      const error = new Error(`User with ID ${userId} doesn't exist!`);
+      error.statusCode = 400;
+      throw error;
+    }
+
+    await History.create({
+      name,
+      image,
+      userId,
+      diseaseId,
+    });
+
+    res.status(200).json({
+      status: "Success",
+      message: "Sucessfully added to history",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(error.statusCode || 500).json({
+      status: "Error",
+      message: error.message || "Internal Server Error",
+    });
+  }
+};
+
+const getUserHistory = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+
+    const currentUser = await User.findOne({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!currentUser) {
+      const error = new Error(`User with ID ${userId} doesn't exist!`);
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const historyData = await History.findAll({
+      where: {
+        userId: userId,
+      },
+      include: {
+        model: Disease,
+        attributes: ["name", "description", "treatment"],
+      },
+      attributes: ["id", "name", "image", "createdAt"],
+    });
+
+    res.status(200).json({
+      status: "Success",
+      message: "Sucessfully get user history",
+      data: historyData,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(error.statusCode || 500).json({
+      status: "Error",
+      message: error.message || "Internal Server Error",
+    });
+  }
+};
+
 module.exports = {
   registerHandler,
   loginHandler,
   getUserInfo,
   editAccountHandler,
   editProfilePictureHandler,
+  addUserHistory,
+  getUserHistory,
 };

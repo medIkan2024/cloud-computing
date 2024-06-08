@@ -11,6 +11,8 @@ const {
   getUserInfo,
   editAccountHandler,
   editProfilePictureHandler,
+  addUserHistory,
+  getUserHistory,
 } = require("../controller/userController");
 
 // register
@@ -31,5 +33,11 @@ router.put(
   upload.single("image"),
   editProfilePictureHandler
 );
+
+// menambah history
+router.post("/users/:userId/history", addUserHistory);
+
+// mengambil history
+router.get("/users/:userId/history", getUserHistory);
 
 module.exports = router;

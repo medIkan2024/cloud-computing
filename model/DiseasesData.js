@@ -55,3 +55,5 @@ const diseases = [
     image: "",
   },
 ];
+
+module.exports = diseases;
