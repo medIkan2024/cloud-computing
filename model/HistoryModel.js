@@ -10,7 +10,7 @@ const History = sequelize.define(
       primaryKey: true,
       allowNull: false,
     },
-    name: {
+    historyName: {
       type: Sequelize.STRING,
       allowNull: false,
     },

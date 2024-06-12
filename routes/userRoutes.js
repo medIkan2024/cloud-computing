@@ -35,9 +35,9 @@ router.put(
 );
 
 // menambah history
-router.post("/users/:userId/history", addUserHistory);
+router.post("/users/history", addUserHistory);
 
 // mengambil history
-router.get("/users/:userId/history", getUserHistory);
+router.get("/users/history/:userId", getUserHistory);
 
 module.exports = router;

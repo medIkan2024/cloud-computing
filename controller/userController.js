@@ -273,10 +273,9 @@ const editProfilePictureHandler = async (req, res, next) => {
 
 const addUserHistory = async (req, res, next) => {
   try {
-    const { userId } = req.params;
-    const { name, image, diseaseId } = req.body;
+    const { historyName, image, userId, diseaseId } = req.body;
 
-    if (!name || !image || !diseaseId) {
+    if (!historyName || !image || !userId || !diseaseId) {
       const error = new Error("Data can't be empty!");
       error.statusCode = 200;
       throw error;
@@ -295,7 +294,7 @@ const addUserHistory = async (req, res, next) => {
     }
 
     await History.create({
-      name,
+      historyName,
       image,
       userId,
       diseaseId,
