@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const googleAuthRouter = require("./routes/googleAuthRoutes");
 const userRouter = require("./routes/userRoutes");
+const diseaseRouter = require("./routes/diseaseRoutes");
 const association = require("./util/db_assoc");
 
 app.use(function (req, res, next) {
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(userRouter);
 app.use(googleAuthRouter);
+app.use(diseaseRouter);
 
 app.get("/", (req, res, next) => {
   res.json({

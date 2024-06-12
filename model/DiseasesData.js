@@ -12,7 +12,7 @@ const diseases = [
     description:
       "Fish parasitic diseases result from infections, both internal and external, causing organ damage and system disruptions, crucially impacting aquaculture population health.",
     treatment:
-      "Organophosphates,Formalin,Potassium Permanganate,2% Salt Bath, Malachite Green Oxalate",
+      "Organophosphates,Formalin,Potassium Permanganate,2% Salt Bath,Malachite Green Oxalate",
     image:
       "http://www.wetwebmedia.com/Arthropoda/CrustaceanPIX/Isopod%20PIX/Anilocra%20laticaudataMD%20BONside.jpg",
   },
