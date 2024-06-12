@@ -337,7 +337,7 @@ const getUserHistory = async (req, res, next) => {
         model: Disease,
         attributes: ["name", "description", "treatment"],
       },
-      attributes: ["id", "name", "image", "createdAt"],
+      attributes: ["id", "historyName", "image", "createdAt"],
     });
 
     res.status(200).json({
