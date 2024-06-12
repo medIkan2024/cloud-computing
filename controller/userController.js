@@ -244,7 +244,7 @@ const editProfilePictureHandler = async (req, res, next) => {
         });
         blobStream.on("finish", async () => {
           await blob.makePublic();
-          const imageUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+          const imageUrl = `https://storage.googleapis.com/${bucket.name}/avatar/${blob.name}`;
           await currentUser.update({
             profilePicture: imageUrl,
           });
