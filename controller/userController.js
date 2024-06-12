@@ -79,7 +79,7 @@ const loginHandler = async (req, res, next) => {
       key,
       {
         algorithm: "HS256",
-        expiresIn: "1d",
+        expiresIn: "7d",
       }
     );
 
@@ -235,16 +235,19 @@ const editProfilePictureHandler = async (req, res, next) => {
       try {
         const file = req.file;
         const fileExtension = file.originalname.split(".").pop();
-        const blob = bucket.file(`${decoded.userId}.${fileExtension}`);
+        const timestamp = new Date().toISOString().replace(/[-:.]/g, "");
+        const blob = bucket.file(
+          `avatar/${decoded.userId}_${timestamp}.${fileExtension}`
+        );
         const blobStream = blob.createWriteStream();
         blobStream.on("error", (err) => {
           const error = new Error("Image Failed to Upload");
-          error.status = 500;
+          error.status = 200;
           throw error;
         });
         blobStream.on("finish", async () => {
           await blob.makePublic();
-          const imageUrl = `https://storage.googleapis.com/${bucket.name}/avatar/${blob.name}`;
+          imageUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
           await currentUser.update({
             profilePicture: imageUrl,
           });
