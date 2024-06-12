@@ -20,7 +20,7 @@ const registerHandler = async (req, res, next) => {
 
     if (checkUser) {
       const error = new Error("Email is already registered.");
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -36,7 +36,7 @@ const registerHandler = async (req, res, next) => {
     });
 
     //send response
-    res.status(201).json({
+    res.status(200).json({
       status: "success",
       message: "Register Successfull!",
     });
@@ -60,7 +60,7 @@ const loginHandler = async (req, res, next) => {
 
     if (currentUser == undefined) {
       const error = new Error("Wrong email or password!");
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -68,7 +68,7 @@ const loginHandler = async (req, res, next) => {
 
     if (checkPassword === false) {
       const error = new Error("Wrong email or password!");
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -79,7 +79,7 @@ const loginHandler = async (req, res, next) => {
       key,
       {
         algorithm: "HS256",
-        expiresIn: "6h",
+        expiresIn: "1d",
       }
     );
 
@@ -110,7 +110,7 @@ const getUserInfo = async (req, res, next) => {
       token = authorization.substring(7);
     } else {
       const error = new Error("You need to login to access this page.");
-      error.statusCode = 403;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -125,7 +125,7 @@ const getUserInfo = async (req, res, next) => {
     });
 
     if (user == undefined) {
-      res.status(400).json({
+      res.status(200).json({
         status: "Error",
         message: `User with id ${userId} doesn't exist!`,
       });
@@ -151,7 +151,7 @@ const editAccountHandler = async (req, res, next) => {
 
     if (!email || !username) {
       const error = new Error("Email and full name can't be empty!");
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -160,7 +160,7 @@ const editAccountHandler = async (req, res, next) => {
       token = authorization.substring(7);
     } else {
       const error = new Error("You need to login");
-      error.statusCode = 403;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -174,7 +174,7 @@ const editAccountHandler = async (req, res, next) => {
 
     if (!currentUser) {
       const error = new Error(`User with ID ${decoded.userId} doesn't exist!`);
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -182,7 +182,7 @@ const editAccountHandler = async (req, res, next) => {
 
     if (checkUser && checkUser.id !== currentUser.id) {
       const error = new Error("Email is already used!");
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -213,7 +213,7 @@ const editProfilePictureHandler = async (req, res, next) => {
       token = authorization.substring(7);
     } else {
       const error = new Error("You need to login");
-      error.statusCode = 403;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -227,7 +227,7 @@ const editProfilePictureHandler = async (req, res, next) => {
 
     if (!currentUser) {
       const error = new Error(`User with ID ${decoded.userId} doesn't exist!`);
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -255,7 +255,7 @@ const editProfilePictureHandler = async (req, res, next) => {
       }
     } else {
       const error = new Error("Image is empty!");
-      error.status = 400;
+      error.status = 200;
       throw error;
     }
     res.status(200).json({
@@ -278,7 +278,7 @@ const addUserHistory = async (req, res, next) => {
 
     if (!name || !image || !diseaseId) {
       const error = new Error("Data can't be empty!");
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -290,7 +290,7 @@ const addUserHistory = async (req, res, next) => {
 
     if (!currentUser) {
       const error = new Error(`User with ID ${userId} doesn't exist!`);
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
@@ -326,7 +326,7 @@ const getUserHistory = async (req, res, next) => {
 
     if (!currentUser) {
       const error = new Error(`User with ID ${userId} doesn't exist!`);
-      error.statusCode = 400;
+      error.statusCode = 200;
       throw error;
     }
 
