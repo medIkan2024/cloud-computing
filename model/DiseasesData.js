@@ -7,6 +7,7 @@ const diseases = [
       "Organophosphates,Masofen,Iufenuron,Diflubenzuron,Potassium permanganate,Emamectin benzoate",
     image:
       "https://aquahealth.wordpress.com/wp-content/uploads/2013/11/argulus.png",
+    reference: "https://www.catatandokterikan.com/2018/01/argulus.html",
   },
   {
     name: "Bacterial Aeromoniasis",
@@ -15,6 +16,7 @@ const diseases = [
     treatment: "Pimafix,Furan-2,Triple Sulfa,E.M Erythromycin",
     image:
       "https://www.shutterstock.com/image-photo/fish-infectionskin-ulcerativeaeromonas-hydrophila-infect-600nw-1998990323.jpg",
+    reference: "https://www.catatandokterikan.com/2017/02/aeromoniasis.html",
   },
   {
     name: "Bacterial Gill",
@@ -23,6 +25,8 @@ const diseases = [
     treatment: "Melafix,Formalin,Praziquantel",
     image:
       "https://www.researchgate.net/profile/Nadia-Hussain-Al-Shammari/publication/338659778/figure/fig3/AS:848420117942272@1579290527960/Cyprinus-carpio-infected-with-bacterial-gill-disease-in-stations-2-and-3-with-A.jpg",
+    reference:
+      "https://dkp.kulonprogokab.go.id/detil/381/penyakit-busuk-insang-gill-rot",
   },
   {
     name: "Bacterial Red/Red Spot",
@@ -31,6 +35,8 @@ const diseases = [
     treatment: "Praziquantel (Antibiotic) ",
     image:
       "https://www.dpi.nsw.gov.au/__data/assets/image/0008/1268360/EUS-Bony-Bream-570x370.jpg",
+    reference:
+      "https://cvpradiptaparamita.com/ancaman-red-sore-disease-pada-ikan/",
   },
   {
     name: "Epizootic Ulcerative Syndrome (EUS)",
@@ -39,6 +45,8 @@ const diseases = [
     treatment: "Cifax,Calcium Hydroxide,NaCl,CaO",
     image:
       "https://assets.isu.pub/document-structure/210408181317-fa4ed68de2764c53140dbd30e8861947/v1/5f7e8e1790bbed506c6bf381561f612b.jpg",
+    reference:
+      "https://www.catatandokterikan.com/2017/05/epizootic-ulcerative-syndrome-eus.html",
   },
   {
     name: "Fungal Saprolegniasis",
@@ -48,12 +56,15 @@ const diseases = [
       "Primafix,Formaldehyde(37%),Malachite Green Oxalate,Methylene Blue,Salt,Providone-iodine,Potassium Permanganate",
     image:
       "https://aquariumscience.org/wp-content/uploads/2020/08/fungus-9.jpg",
+    reference:
+      " https://www.lalaukan.com/2019/08/penyakit-fungal-jamur-pada-ikan.html ",
   },
   {
     name: "Healthy Fish",
     description: "Your fish is healthy!",
     treatment: "",
     image: "",
+    reference: "",
   },
   {
     name: "Parasitic",
@@ -63,6 +74,8 @@ const diseases = [
       "Organophosphates,Formalin,Potassium Permanganate,2% Salt Bath,Malachite Green Oxalate",
     image:
       "http://www.wetwebmedia.com/Arthropoda/CrustaceanPIX/Isopod%20PIX/Anilocra%20laticaudataMD%20BONside.jpg",
+    reference:
+      "https://news.unair.ac.id/2021/06/08/parasit-pada-ikan-koi-di-tambak-air-tawar-dengan-kepadatan-berbeda/?lang=id",
   },
   {
     name: "Tail and Fin Rot",
@@ -70,6 +83,8 @@ const diseases = [
       "Fin and Tail Rot, caused by gram-negative bacteria, is a common and preventable aquarium fish disease often accompanying other illnesses. Difficult to cure, it can be fatal if untreated, spreading to all fish in the aquarium.",
     treatment: "Tetracycline,Erythromychine,Chloromycetin,Acriflavine",
     image: "https://www.about-goldfish.com/images/Tail_Rot.jpg",
+    reference:
+      "https://sumateraekspres.bacakoran.co/read/36990/melawan-ancaman-fin-rot-ini-loh-cara-efektif-mengatasi-penyakit-pada-ikan-manfish-wajib-tahu",
   },
   {
     name: "White Tail",
@@ -78,6 +93,8 @@ const diseases = [
     treatment: "Melafix,Pimafix,Formalin",
     image:
       "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2021/12/06/2319888566.jpg",
+    reference:
+      "https://www.catatandokterikan.com/2015/10/white-spot-ikan-air-tawar-ikan-hias.html",
   },
 ];
 

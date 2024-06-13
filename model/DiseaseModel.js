@@ -18,10 +18,14 @@ const Disease = sequelize.define("diseases", {
   },
   treatment: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   image: {
     type: Sequelize.TEXT,
+    allowNull: true,
+  },
+  reference: {
+    type: Sequelize.STRING,
     allowNull: true,
   },
 });
