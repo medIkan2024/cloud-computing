@@ -16,6 +16,8 @@ Endpoints available:
   <pre>GET /users (Fetch user account data)</pre>
   <pre>PUT /users/edit-account (Edit user's profile)</pre>
   <pre>PUT /users/edit-profile-picture (Edit user's profile picture)</pre>
+  <pre>POST /users/history (Add new history)</pre>
+  <pre>GET /users/history/:userId (Get history by user ID)</pre>
 - Disease <br />
   <pre>GET /disease (Fetch all diseases data)</pre>
   <pre>GET /disease/:diseaseId (Fetch disease data by ID)</pre>
