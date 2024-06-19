@@ -343,10 +343,21 @@ const getUserHistory = async (req, res, next) => {
       attributes: ["id", "historyName", "image", "createdAt"],
     });
 
+    const formattedHistoryData = historyData.map((record) => {
+      const formattedDate = record.createdAt
+        .toISOString()
+        .replace("T", " ")
+        .split(".")[0];
+      return {
+        ...record.toJSON(),
+        createdAt: formattedDate,
+      };
+    });
+
     res.status(200).json({
       status: "Success",
       message: "Sucessfully get user history",
-      data: historyData,
+      data: formattedHistoryData,
     });
   } catch (error) {
     console.error(error);
