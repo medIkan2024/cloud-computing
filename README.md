@@ -2,7 +2,7 @@
 Building RESTful APIs with NodeJS (Express) and utilizing Google App Engine to deploy them to the Google Cloud Platform in order to establish a connection between an Android application and a database. Using Cloud Storage to store photos and Cloud SQL with Sequelize to create the database server.
 
 ## Architecture
-![archtecture](https://storage.googleapis.com/bucket-ml-medikan/architecture.png) <br />
+![archtectures](https://storage.googleapis.com/bucket-ml-medikan/architecture.png) <br />
 This web services has two service available which is:
 - Backend <br />
   Base URL: https://web-service-dot-medikan.et.r.appspot.com
