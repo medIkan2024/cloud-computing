@@ -3,12 +3,19 @@ Building RESTful APIs with NodeJS (Express) and utilizing Google App Engine to d
 
 ## Architecture
 This web services has two service available which is:
-- Backend
-  https://web-service-dot-medikan.et.r.appspot.com
-- Deployed Model
-  https://predict-fhl2f6pupa-et.a.run.app/predict
+- Backend <br />
+  Base URL: https://web-service-dot-medikan.et.r.appspot.com
+- Deployed Model <br />
+  Base URL: https://predict-fhl2f6pupa-et.a.run.app/predict
   
 ## Backend Web Service
-
-
-  
+Endpoints available:
+- User <br />
+  <pre>POST /users/register (Register a new user)</pre>
+  <pre>POST /users/login (User login)</pre>
+  <pre>GET /users (Fetch user account data)</pre>
+  <pre>PUT /users/edit-account (Edit user's profile)</pre>
+  <pre>PUT /users/edit-profile-picture (Edit user's profile picture)</pre>
+- Disease <br />
+  <pre>GET /disease (Fetch all diseases data)</pre>
+  <pre>GET /disease/:diseaseId (Fetch disease data by ID)</pre>
