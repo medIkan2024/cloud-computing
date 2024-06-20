@@ -1,5 +1,5 @@
 # Cloud Computing Path
-Building RESTful APIs with NodeJS (Express) and utilizing Google App Engine to deploy them to the Google Cloud Platform in order to establish a connection between an Android application and a database. Using Cloud Storage to store photos and Cloud SQL with Sequelize to create the database server.
+Building RESTful APIs with NodeJS (Express.js) for Backend Web Service and utilizing Google App Engine to deploy them to the Google Cloud Platform in order to establish a connection between an Android application and a database. Using Flask for machine learning model deployment with Google Cloud Run. Using Cloud Storage to store user photos and histories also Cloud SQL with Sequelize to create the database server.
 
 ## Architecture
 ![archtectures](https://storage.googleapis.com/bucket-ml-medikan/architecture.png) <br />
