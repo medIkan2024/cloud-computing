@@ -8,6 +8,9 @@ This web services has two service available which is:
   Base URL: https://web-service-dot-medikan.et.r.appspot.com
 - Deployed Model <br />
   Base URL: https://predict-fhl2f6pupa-et.a.run.app/predict
+
+## ERD
+![erd](https://storage.googleapis.com/bucket-ml-medikan/erd.png)
   
 ## Backend Web Service
 Endpoints available:
