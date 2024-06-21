@@ -13,6 +13,9 @@ This web services has two service available which is:
 ![erd](https://storage.googleapis.com/bucket-ml-medikan/erd.png)
   
 ## Backend Web Service
+Documentation: <br />
+[Documentation Link](https://documenter.getpostman.com/view/29140750/2sA3XV8zaW) <br />
+
 Endpoints available:
 - User <br />
   <pre>POST /users/register (Register a new user)</pre>
